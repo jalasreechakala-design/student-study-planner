@@ -21,7 +21,7 @@ if (password.length < 6) {
 }
 
     const response = await fetch(
-      "http://localhost:5000/register",
+    "https://student-study-planner-qpdr.onrender.com/register",
       {
         method: "POST",
         headers: {
