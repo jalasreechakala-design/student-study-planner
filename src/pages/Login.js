@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 function Login({ setPage, setIsLoggedIn }) {
+    
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,7 +14,7 @@ function Login({ setPage, setIsLoggedIn }) {
   return;
 }
     const response = await fetch(
-      "http://localhost:5000/login",
+      "https://student-study-planner-qpdr.onrender.com/login",
       {
         method: "POST",
         headers: {
