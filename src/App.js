@@ -11,8 +11,7 @@ function Login({ setPage, setIsLoggedIn }) {
     }
 
     const response = await fetch(
-      "https://student-study-planner-qpdr.onrender.com/login",
-      {
+      "https://student-study-planner-qpdr.onrender.com",
         method: "POST",
         headers: {
           "Content-Type": "application/json",
