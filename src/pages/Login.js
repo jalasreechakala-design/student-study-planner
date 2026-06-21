@@ -27,17 +27,15 @@ function Login({ setPage, setIsLoggedIn }) {
       }
     );
 
-    const data = await response.text();
+    const data = await response.json();
 
-    if (response.ok) {
-      alert("Login Successful");
-       setIsLoggedIn(true);
-      setPage("dashboard");
-     
-    } else {
-      alert(data);
-    }
-  };
+    if (data.success) {
+  alert("Login Successful");
+  setIsLoggedIn(true);
+  setPage("dashboard");
+} else {
+  alert("Invalid Email or Password");
+};
 
   return (
     <div>
