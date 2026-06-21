@@ -25,7 +25,7 @@ const [editDueDate, setEditDueDate] = useState("");
   }, []);
 
   const fetchTasks = () => {
-    fetch("http://localhost:5000/tasks")
+    fetch(" https://student-study-planner-qpdr.onrender.com/tasks")
       .then((res) => res.json())
       .then((data) => setTasks(data))
       .catch((err) => console.log(err));
@@ -43,7 +43,7 @@ if (
   return;
 }
     const response = await fetch(
-      "http://localhost:5000/add-task",
+      "https://student-study-planner-qpdr.onrender.com/add-task",
       {
         method: "POST",
         headers: {
@@ -70,7 +70,7 @@ if (
 
   const deleteTask = async (id) => {
     const response = await fetch(
-      `http://localhost:5000/delete-task/${id}`,
+      `https://student-study-planner-qpdr.onrender.com/delete-task/${id}`,
       {
         method: "DELETE",
       }
@@ -83,7 +83,7 @@ if (
 
   const completeTask = async (id) => {
     const response = await fetch(
-      `http://localhost:5000/complete-task/${id}`,
+      `https://student-study-planner-qpdr.onrender.com/complete-task/${id}`,
       {
         method: "PUT",
       }
@@ -95,7 +95,7 @@ if (
   };
   const updateTask = async (id) => {
   const response = await fetch(
-    `http://localhost:5000/update-task/${id}`,
+    `https://student-study-planner-qpdr.onrender.com/update-task/${id}`,
     {
       method: "PUT",
       headers: {
