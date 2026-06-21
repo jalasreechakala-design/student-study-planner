@@ -20,6 +20,7 @@ const [editDueDate, setEditDueDate] = useState("");
   
   const [subject, setSubject] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [streak] = useState(7);
   useEffect(() => {
     fetchTasks();
   }, []);
@@ -173,10 +174,15 @@ return (
           <li onClick={() => setPage("analytics")}>
             📊 Analytics
           </li>
+          <li
+  onClick={() => {
+    setIsLoggedIn(false);
+    setPage("login");
+  }}
+>
+  🚪 Logout
+</li>
           
-          <li onClick={() => setPage("login")}>
-            🔐 Login  
-          </li> 
         </ul>
       </div>
     )}
@@ -186,16 +192,23 @@ return (
 
         {/* Dashboard */}
         {page === "dashboard" && (
-          <>
-            <h1>📚 Student Study Planner</h1>
-            <p>Manage your tasks and track your progress.</p>
+  <>
+    <div className="welcome-card">
+      <h1>👋 Welcome Back</h1>
+      <p>Stay focused and complete your study goals today!</p>
+    </div>
 
+    <h1>📚 Student Study Planner</h1>
+    <p>Manage your tasks and track your progress.</p>
             <div className="card-container">
               <div className="card">
                 <h3>📋 Total Tasks</h3>
                 <h2>{tasks.length}</h2>
               </div>
-
+              <div className="card">
+  <h3>🔥 Study Streak</h3>
+  <h2>{streak} Days</h2>
+</div>
               <div className="card">
                 <h3>✅ Completed Tasks</h3>
                 <h2>

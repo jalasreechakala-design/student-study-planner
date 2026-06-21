@@ -5,11 +5,18 @@ function Notes() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
+
   const fetchNotes = () => {
-    fetch("http://localhost:5000/notes")
-      .then((res) => res.json())
-      .then((data) => setNotes(data));
-  };
+  fetch("https://student-study-planner-qpdr.onrender.com/notes")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      setNotes(data);
+    })
+    .catch((err) => {
+      console.log("Notes Error:", err);
+    });
+};
 
   useEffect(() => {
     fetchNotes();
@@ -17,7 +24,7 @@ function Notes() {
 
   const addNote = async () => {
     const response = await fetch(
-      "http://localhost:5000/add-note",
+      "https://student-study-planner-qpdr.onrender.com/add-note",
       {
         method: "POST",
         headers: {
@@ -39,7 +46,7 @@ function Notes() {
 
   const deleteNote = async (id) => {
     await fetch(
-      `http://localhost:5000/delete-note/${id}`,
+      `https://student-study-planner-qpdr.onrender.com/delete-note/${id}`,
       {
         method: "DELETE",
       }
