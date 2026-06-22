@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Login({ setPage, setIsLoggedIn }) {
+function Login({ setPage, setIsLoggedIn,setUser, }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,6 +28,8 @@ function Login({ setPage, setIsLoggedIn }) {
 
     if (data.success) {
       alert("Login Successful");
+    
+      setUser(data.user);
       setIsLoggedIn(true);
       setPage("dashboard");
     } else {

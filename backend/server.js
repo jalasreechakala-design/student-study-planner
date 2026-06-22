@@ -12,23 +12,28 @@ app.get("/", (req, res) => {
 });
 
 // Get all tasks
-app.get("/tasks", (req, res) => {
-    const sql = "SELECT * FROM tasks";
+// Get all tasks
+app.get("/tasks/:userId", (req, res) => {
+  const userId = req.params.userId;
 
-    db.query(sql, (err, result) => {
-        if (err) {
-            console.log(err);
-            return res.status(500).send("Error");
-        }
+  const sql =
+    "SELECT * FROM tasks WHERE user_id = ?";
 
-        res.json(result);
-    });
+  db.query(sql, [userId], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send("Error");
+    }
+
+    res.json(result);
+  });
 });
 
 //app.post("/add-task", (req, res) => {
   app.post("/add-task", (req, res) => {
 
   const {
+    user_id,
     task_name,
     subject,
     priority,
@@ -36,11 +41,12 @@ app.get("/tasks", (req, res) => {
   } = req.body;
 
   const sql =
-    "INSERT INTO tasks (task_name, subject, priority, due_date) VALUES (?, ?, ?, ?)";
+    "INSERT INTO tasks (user_id, task_name, subject, priority, due_date) VALUES (?, ?, ?, ?, ?)";
 
   db.query(
     sql,
     [
+      user_id,
       task_name,
       subject,
       priority,
@@ -89,7 +95,7 @@ app.listen(5000, () => {
     console.log("Server running on port 5000");
 });
 app.put("/update-task/:id", (req, res) => {
-  const { task_name, priority, due_date } = req.body;
+  const {user_id, task_name,subject, priority, due_date } = req.body;
   const id = req.params.id;
 
   const sql =
