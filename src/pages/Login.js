@@ -1,53 +1,54 @@
 import { useState } from "react";
 
-function Login({ setPage, setIsLoggedIn,setUser, }) {
+function Login({ setPage, setIsLoggedIn, setUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const loginUser = async () => {
-    if (email.trim() === "" || password.trim() === "") {
+    if (!email || !password) {
       alert("Please enter email and password");
       return;
     }
 
-    const response = await fetch(
-      "https://student-study-planner-qpdr.onrender.com/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+    try {
+      const response = await fetch(
+        "https://student-study-planner-qpdr.onrender.com/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      console.log("Login Response:", data);
+
+      if (data.success) {
+        alert("Login Successful");
+
+        if (data.user) {
+          setUser(data.user);
+        }
+
+        setIsLoggedIn(true);
+        setPage("dashboard");
+      } else {
+        alert("Invalid Email or Password");
       }
-    );
-    const data = await response.json();
-    console.log("Login Response:", data);
-
-   if (data.success) {
-  alert("Login Successful");
-
-  console.log("DATA:", data);
-  console.log("USER:", data.user);
-
-  console.log("typeof setUser =", typeof setUser);
-console.log("typeof setIsLoggedIn =", typeof setIsLoggedIn);
-console.log("typeof setPage =", typeof setPage);
-
-setUser(data.user);
-setIsLoggedIn(true);
-setPage("dashboard");
-  console.log("LOGIN FINISHED");
-}
-     else {
-      alert("Invalid Email or Password");
+    } catch (error) {
+      console.log(error);
+      alert("Server Error");
     }
   };
 
   return (
-    <div>
+    <div style={{ padding: "30px" }}>
       <h1>🔐 Login</h1>
 
       <input
