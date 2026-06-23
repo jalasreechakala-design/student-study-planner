@@ -32,10 +32,13 @@ function Login({ setPage, setIsLoggedIn,setUser, }) {
   console.log("DATA:", data);
   console.log("USER:", data.user);
 
-  setUser(data.user);
-  setIsLoggedIn(true);
-  setPage("dashboard");
+  console.log("typeof setUser =", typeof setUser);
+console.log("typeof setIsLoggedIn =", typeof setIsLoggedIn);
+console.log("typeof setPage =", typeof setPage);
 
+setUser(data.user);
+setIsLoggedIn(true);
+setPage("dashboard");
   console.log("LOGIN FINISHED");
 }
      else {
