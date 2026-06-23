@@ -240,14 +240,15 @@ app.post("/login", (req, res) => {
       }
 
       if (result.length > 0) {
-        res.json({
-          success: true,
-        });
-      } else {
-        res.json({
-          success: false,
-        });
-      }
+  res.json({
+    success: true,
+    user: result[0],
+  });
+} else {
+  res.json({
+    success: false,
+  });
+}
     }
   );
 });
