@@ -149,16 +149,15 @@ app.post("/login", (req, res) => {
       }
 
       if (result.length > 0) {
-        res.json({
-          success: true,
-          user: result[0],
-        });
-      } else {
-        res.json({
-          success: false,
-          message: "Invalid Email or Password",
-        });
-      }
+  res.json({
+    success: true,
+    user: result[0],
+  });
+} else {
+  res.json({
+    success: false,
+  });
+}
     }
   );
 });
