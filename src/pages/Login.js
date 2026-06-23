@@ -30,7 +30,12 @@ function Login({ setPage, setIsLoggedIn, setUser }) {
       console.log("Login Response:", data);
 
       if (data.success) {
-        alert("Login Successful");
+  console.log("USER OBJECT:", data.user);
+
+  setUser(data.user);
+  setIsLoggedIn(true);
+  setPage("dashboard");
+}
 
         if (data.user) {
           setUser(data.user);
