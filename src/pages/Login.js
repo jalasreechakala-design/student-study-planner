@@ -23,18 +23,22 @@ function Login({ setPage, setIsLoggedIn,setUser, }) {
         }),
       }
     );
-
     const data = await response.json();
     console.log("Login Response:", data);
 
-    if (data.success) {
-      alert("Login Successful");
-    
-      console.log("USER:", data.user);
-setUser(data.user);
-      setIsLoggedIn(true);
-      setPage("dashboard");
-    } else {
+   if (data.success) {
+  alert("Login Successful");
+
+  console.log("DATA:", data);
+  console.log("USER:", data.user);
+
+  setUser(data.user);
+  setIsLoggedIn(true);
+  setPage("dashboard");
+
+  console.log("LOGIN FINISHED");
+}
+     else {
       alert("Invalid Email or Password");
     }
   };
