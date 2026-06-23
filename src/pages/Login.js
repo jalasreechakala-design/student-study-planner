@@ -29,7 +29,8 @@ function Login({ setPage, setIsLoggedIn,setUser, }) {
     if (data.success) {
       alert("Login Successful");
     
-      setUser(data.user);
+      console.log("USER:", data.user);
+setUser(data.user);
       setIsLoggedIn(true);
       setPage("dashboard");
     } else {

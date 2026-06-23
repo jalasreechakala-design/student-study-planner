@@ -1,3 +1,26 @@
+.menu-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .menu-btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    background: #2563eb;
+    color: white;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .show-sidebar {
+    display: block;
+    width: 100%;
+  }
+}
 .theme-btn {
   width: 100%;
   padding: 10px;
@@ -257,4 +280,52 @@ button {
 
 .welcome-card p {
   margin-top: 10px;
+}
+@media (max-width: 768px) {
+
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+  width: 80px;
+  padding: 8px;
+}
+.sidebar h2 {
+  font-size: 16px;
+}
+
+.sidebar li {
+  font-size: 14px;
+  padding: 8px;
+}
+  .main {
+    padding: 15px;
+  }
+
+  .card-container {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .form-box {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .welcome-card h1 {
+    font-size: 28px;
+  }
 }

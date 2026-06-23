@@ -17,7 +17,7 @@ function Notes() {
       console.log("Notes Error:", err);
     });
 };
-s
+
   useEffect(() => {
     fetchNotes();
   }, []);
