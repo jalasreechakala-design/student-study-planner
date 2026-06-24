@@ -5,7 +5,7 @@ function Login({ setPage, setIsLoggedIn, setUser }) {
   const [password, setPassword] = useState("");
 
   const loginUser = async () => {
-    if (!email || !password) {
+    if (email.trim() === "" || password.trim() === "") {
       alert("Please enter email and password");
       return;
     }
@@ -30,17 +30,14 @@ function Login({ setPage, setIsLoggedIn, setUser }) {
       console.log("Login Response:", data);
 
       if (data.success) {
-  console.log("USER OBJECT:", data.user);
+        alert("Login Successful");
 
-  setUser(data.user);
-  setIsLoggedIn(true);
-  setPage("dashboard");
-}
+        console.log("USER OBJECT:", data.user);
+        console.log("setUser =", setUser);
+        console.log("setIsLoggedIn =", setIsLoggedIn);
+        console.log("setPage =", setPage);
 
-        if (data.user) {
-          setUser(data.user);
-        }
-
+        setUser(data.user);
         setIsLoggedIn(true);
         setPage("dashboard");
       } else {
