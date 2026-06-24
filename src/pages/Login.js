@@ -36,16 +36,27 @@ function Login({ setPage, setIsLoggedIn, setUser }) {
         console.log("setUser =", setUser);
         console.log("setIsLoggedIn =", setIsLoggedIn);
         console.log("setPage =", setPage);
+console.log("setUser =", setUser);
 
-        setUser(data.user);
-        setIsLoggedIn(true);
-        setPage("dashboard");
+if (typeof setUser === "function") {
+  setUser(data.user);
+}
+
+
+
+setIsLoggedIn(true);
+
+
+
+setPage("dashboard");
+
+
       } else {
         alert("Invalid Email or Password");
       }
     } catch (error) {
-      console.log(error);
-      alert("Server Error");
+      console.log("FULL ERROR",error);
+      alert("An error occurred while logging in");
     }
   };
 
