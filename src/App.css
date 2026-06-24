@@ -2,25 +2,7 @@
   display: none;
 }
 
-@media (max-width: 768px) {
 
-  .menu-btn {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    background: #2563eb;
-    color: white;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .show-sidebar {
-    display: block;
-    width: 100%;
-  }
-}
 .theme-btn {
   width: 100%;
   padding: 10px;
@@ -286,10 +268,23 @@ button {
   .container {
     flex-direction: column;
   }
+  .menu-btn {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  background: #2563eb;
+  color: white;
+}
+.sidebar {
+  display: none;
+  width: 100%;
+  padding: 15px;
+}
 
-  .sidebar {
-  width: 80px;
-  padding: 8px;
+.show-sidebar {
+  display: block;
+}
+  
 }
 .sidebar h2 {
   font-size: 16px;
@@ -328,4 +323,3 @@ button {
   .welcome-card h1 {
     font-size: 28px;
   }
-}
